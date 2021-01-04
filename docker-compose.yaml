@@ -56,6 +56,11 @@ services:
     container_name: es-init
     entrypoint: ./scripts/entrypoint.sh
 
+networks:
+  default:
+    external: 
+      name: your-network
+
 volumes:
   data01-es:
     driver: local

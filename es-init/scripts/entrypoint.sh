@@ -8,6 +8,9 @@ sleep 2
 
 echo Elasticsearch ready to serve requests 
 
+# disable disk threshold
+curl --location -XPUT http://es01:9200/_cluster/settings -H "Content-Type: application/json" -d '{"persistent" : {"cluster.routing.allocation.disk.threshold_enabled": false}}'
+
 echo Delete index mapping 
 curl --location --request DELETE 'http://es01:9200/nobel'
 
